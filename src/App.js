@@ -3,7 +3,7 @@ import './App.css';
 
 function App() {
   // Basic Variables
-  const greeting = "Hello World";
+  const greeting = "Hello World1";
   let counter = 0;
   
   // Array Example
