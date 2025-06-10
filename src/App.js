@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ThemeProvider, createTheme, CssBaseline } from '@mui/material';
 import Navbar from './components/Navbar';
@@ -29,6 +29,10 @@ const theme = createTheme({
 });
 
 function App() {
+  useEffect(() => {
+    document.title = 'Padhai Passion - Your Learning Partner';
+  }, []);
+
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />

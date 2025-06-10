@@ -21,7 +21,7 @@ const Home = () => {
     <Container>
       <Box sx={{ my: 4 }}>
         <Typography variant="h3" component="h1" gutterBottom>
-          Welcome to Exam Courses
+          Welcome to Padhai Passion
         </Typography>
         <Typography variant="h5" color="text.secondary" paragraph>
           Your one-stop destination for exam preparation materials and courses

@@ -111,7 +111,7 @@ const Contact = () => {
               <Box sx={{ my: 3 }}>
                 <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
                   <EmailIcon sx={{ mr: 2 }} color="primary" />
-                  <Typography>support@examcourses.com</Typography>
+                  <Typography>support@padhaipassion.com</Typography>
                 </Box>
                 <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
                   <PhoneIcon sx={{ mr: 2 }} color="primary" />
