@@ -7,13 +7,13 @@ const Home = () => {
       id: 1,
       title: 'UPSC Preparation',
       description: 'Comprehensive course for UPSC Civil Services Examination',
-      image: 'https://source.unsplash.com/random/800x600/?study',
+      image: 'https://img.freepik.com/free-photo/young-student-studying-library_23-2149215402.jpg',
     },
     {
       id: 2,
       title: 'Bank PO Course',
       description: 'Complete preparation for Banking examinations',
-      image: 'https://source.unsplash.com/random/800x600/?banking',
+      image: 'https://img.freepik.com/free-photo/banking-finance-elements_23-2150164874.jpg',
     },
   ];
 

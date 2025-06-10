@@ -9,7 +9,7 @@ const Products = () => {
       description: 'Comprehensive course for UPSC Civil Services Examination',
       price: '₹15,999',
       duration: '12 months',
-      image: 'https://source.unsplash.com/random/800x600/?study',
+      image: 'https://img.freepik.com/free-photo/young-student-studying-library_23-2149215402.jpg',
       features: ['Video Lectures', 'Study Materials', 'Mock Tests', 'Expert Support']
     },
     {
@@ -18,7 +18,7 @@ const Products = () => {
       description: 'Complete preparation for Banking examinations',
       price: '₹12,999',
       duration: '6 months',
-      image: 'https://source.unsplash.com/random/800x600/?banking',
+      image: 'https://img.freepik.com/free-photo/banking-finance-elements_23-2150164874.jpg',
       features: ['Live Classes', 'Practice Questions', 'Previous Year Papers', 'Performance Analytics']
     },
     {
@@ -27,7 +27,7 @@ const Products = () => {
       description: 'Structured course for Staff Selection Commission exams',
       price: '₹10,999',
       duration: '8 months',
-      image: 'https://source.unsplash.com/random/800x600/?exam',
+      image: 'https://img.freepik.com/free-photo/young-people-studying-together_23-2149036905.jpg',
       features: ['Topic-wise Content', 'Daily Quizzes', 'Doubt Clearing', 'Mobile App Access']
     },
   ];
