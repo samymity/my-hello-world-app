@@ -5,6 +5,8 @@ import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import Products from './pages/Products';
 import Contact from './pages/Contact';
+import TestSeries from './pages/TestSeries';
+import CurrentAffairs from './pages/CurrentAffairs';
 
 const theme = createTheme({
   palette: {
@@ -43,6 +45,8 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/products" element={<Products />} />
+              <Route path="/test-series" element={<TestSeries />} />
+              <Route path="/current-affairs" element={<CurrentAffairs />} />
               <Route path="/contact" element={<Contact />} />
             </Routes>
           </main>
