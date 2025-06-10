@@ -9,32 +9,46 @@ import {
   Paper,
   Card,
   CardContent,
+  Alert,
 } from '@mui/material';
 import EmailIcon from '@mui/icons-material/Email';
 import PhoneIcon from '@mui/icons-material/Phone';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    message: '',
-  });
+  const [email, setEmail] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [message, setMessage] = useState('');
+  const [messageType, setMessageType] = useState('success');
 
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
-
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Here you would typically handle the form submission
-    console.log('Form submitted:', formData);
-    alert('Thank you for your message! We will get back to you soon.');
-    setFormData({ name: '', email: '', phone: '', message: '' });
+    setIsSubmitting(true);
+    setMessage('');
+
+    try {
+      const response = await fetch('https://n8n-ttiq.onrender.com/webhook/email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to submit email');
+      }
+
+      setMessageType('success');
+      setMessage('Email submitted successfully!');
+      setEmail(''); // Clear the input after successful submission
+    } catch (error) {
+      setMessageType('error');
+      setMessage('Error submitting email. Please try again.');
+      console.error('Submission error:', error);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -44,7 +58,7 @@ const Contact = () => {
           Contact Us
         </Typography>
         <Typography variant="h6" color="text.secondary" paragraph>
-          Get in touch with us for any queries about our courses
+          Subscribe to get updates about our courses
         </Typography>
       </Box>
 
@@ -56,43 +70,12 @@ const Contact = () => {
                 <Grid item xs={12}>
                   <TextField
                     fullWidth
-                    label="Name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    required
-                  />
-                </Grid>
-                <Grid item xs={12}>
-                  <TextField
-                    fullWidth
                     label="Email"
-                    name="email"
                     type="email"
-                    value={formData.email}
-                    onChange={handleChange}
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                     required
-                  />
-                </Grid>
-                <Grid item xs={12}>
-                  <TextField
-                    fullWidth
-                    label="Phone"
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handleChange}
-                  />
-                </Grid>
-                <Grid item xs={12}>
-                  <TextField
-                    fullWidth
-                    label="Message"
-                    name="message"
-                    multiline
-                    rows={4}
-                    value={formData.message}
-                    onChange={handleChange}
-                    required
+                    disabled={isSubmitting}
                   />
                 </Grid>
                 <Grid item xs={12}>
@@ -102,10 +85,18 @@ const Contact = () => {
                     color="primary"
                     size="large"
                     fullWidth
+                    disabled={isSubmitting}
                   >
-                    Send Message
+                    {isSubmitting ? 'Submitting...' : 'Subscribe'}
                   </Button>
                 </Grid>
+                {message && (
+                  <Grid item xs={12}>
+                    <Alert severity={messageType}>
+                      {message}
+                    </Alert>
+                  </Grid>
+                )}
               </Grid>
             </form>
           </Paper>
